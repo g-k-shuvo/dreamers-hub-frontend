@@ -57,3 +57,24 @@ export const POST_BY_SLUG_QUERY = `
         otherLinks
     }
     `
+
+// sanity/queries.ts
+export const POSTS_BY_PAGE_QUERY = `
+*[
+  _type == "post"
+  && defined(slug.current)
+]|order(publishedAt desc)[$start...$end]{
+  _id,
+  title,
+  slug,
+  publishedAt,
+  thumbnail,
+  body,
+  category,
+  isFeatured,
+  attachments,
+  totalCount,
+  source,
+  otherLinks
+}
+`

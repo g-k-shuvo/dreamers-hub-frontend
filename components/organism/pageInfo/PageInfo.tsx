@@ -1,3 +1,4 @@
+import { PageInfoPropTypes } from '@/utils/types'
 import Link from 'next/link'
 import React from 'react'
 
@@ -9,12 +10,10 @@ import React from 'react'
  * @returns React component that can be easily integrated into any web application.
  */
 
-const PageInfo = () => {
+const PageInfo: React.FC<PageInfoPropTypes> = ({ title }) => {
    return (
       <div className="py-4 bg-base-100 text-center font-work">
-         <h1 className="text-base-content text-3xl font-semibold">
-            Page Title
-         </h1>
+         <h1 className="text-base-content text-3xl font-semibold">{title}</h1>
          <div className="text-base breadcrumbs text-base-content/80 font-work mt-2 flex items-center justify-center">
             <ul>
                <li>
@@ -27,7 +26,7 @@ const PageInfo = () => {
                </li>
                <li>
                   <span className="text-base-content/60 font-normal text-base">
-                     Link One
+                     {title}
                   </span>
                </li>
             </ul>

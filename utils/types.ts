@@ -61,3 +61,7 @@ export interface SinglePostPagePropTypes {
       slug: string
    }
 }
+
+export interface PageInfoPropTypes {
+   title: string
+}

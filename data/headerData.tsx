@@ -5,7 +5,7 @@ export const headerData = [
    },
    {
       name: 'All Posts',
-      link: '/blog',
+      link: '/all-posts',
    },
    {
       name: 'Jobs',
