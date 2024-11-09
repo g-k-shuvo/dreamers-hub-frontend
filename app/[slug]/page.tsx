@@ -27,11 +27,7 @@ function urlFor(source: any) {
 export default async function SinglePost({ params }: { params: any }) {
    const { slug } = await params
 
-   const post = await client.fetch<SanityDocument>(
-      POST_BY_SLUG_QUERY,
-      { slug },
-      {}
-   )
+   const post = await client.fetch<SanityDocument>(POST_BY_SLUG_QUERY, { slug })
    const postThumbnail = post.thumbnail
       ? urlFor(post.thumbnail).width(360).height(240).url()
       : null
