@@ -6,7 +6,7 @@ import avatar from '@/public/avatar.png'
 import React from 'react'
 import Image from 'next/image'
 import imageUrlBuilder from '@sanity/image-url'
-import { PortableText } from 'next-sanity'
+import { PortableText, SanityDocument } from 'next-sanity'
 import { PortableTextComponent } from '@/components/molecules/portableText/PortableText'
 import { isValidUrl } from '@/utils/functions'
 import { Document, Page, pdfjs } from 'react-pdf'
@@ -27,7 +27,11 @@ function urlFor(source: any) {
 export default async function SinglePost({ params }: { params: any }) {
    const { slug } = await params
 
-   const post = await client.fetch<Post>(POST_BY_SLUG_QUERY, { slug }, {})
+   const post = await client.fetch<SanityDocument>(
+      POST_BY_SLUG_QUERY,
+      { slug },
+      {}
+   )
    const postThumbnail = post.thumbnail
       ? urlFor(post.thumbnail).width(360).height(240).url()
       : null

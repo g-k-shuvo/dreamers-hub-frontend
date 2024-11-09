@@ -1,4 +1,4 @@
-export const categoryMap = {
+export const categoryMap: any = {
    'govt-jobs': 'Government Jobs',
    'non-govt-jobs': 'Non-Government Jobs',
    newspaper: 'Newspaper',
