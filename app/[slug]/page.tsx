@@ -1,6 +1,6 @@
 import { categoryMap } from '@/data/utils'
-import { client } from '@/sanity/client'
-import { POST_BY_SLUG_QUERY } from '@/sanity/queries'
+import { client } from '../../sanity/client'
+import { FIRST_TEN_POSTS_QUERY, POST_BY_SLUG_QUERY } from '@/sanity/queries'
 import { Post, SinglePostPagePropTypes } from '@/utils/types'
 import avatar from '@/public/avatar.png'
 import React from 'react'
@@ -27,12 +27,11 @@ function urlFor(source: any) {
 export default async function SinglePost({ params }: { params: any }) {
    const { slug } = await params
 
-   const post = await client.fetch<SanityDocument>(POST_BY_SLUG_QUERY, { slug })
+   const post = await (client.fetch as any)(POST_BY_SLUG_QUERY, { slug })
+
    const postThumbnail = post.thumbnail
       ? urlFor(post.thumbnail).width(360).height(240).url()
       : null
-
-   console.log('SinglePost -> post', post.attachments)
 
    return (
       <main>
@@ -99,54 +98,58 @@ export default async function SinglePost({ params }: { params: any }) {
                   <div className="mt-8">
                      {post.attachments && post.attachments.length > 0 && (
                         <div>
-                           {post.attachments.map((attachment, index) => {
-                              const isImage =
-                                 attachment._type === 'file' &&
-                                 (attachment.asset._ref.endsWith('-jpg') ||
-                                    attachment.asset._ref.endsWith('-png') ||
-                                    attachment.asset._ref.endsWith('-jpeg') ||
-                                    attachment.asset._ref.endsWith('-webp'))
+                           {post.attachments.map(
+                              (attachment: any, index: number) => {
+                                 const isImage =
+                                    attachment._type === 'file' &&
+                                    (attachment.asset._ref.endsWith('-jpg') ||
+                                       attachment.asset._ref.endsWith('-png') ||
+                                       attachment.asset._ref.endsWith(
+                                          '-jpeg'
+                                       ) ||
+                                       attachment.asset._ref.endsWith('-webp'))
 
-                              const isPdf =
-                                 attachment._type === 'file' &&
-                                 attachment.asset._ref.endsWith('-pdf')
-                              return (
-                                 <div key={index} className="mb-4">
-                                    {isImage && (
-                                       <Image
-                                          width="800"
-                                          height="462"
-                                          alt={`blog_image`}
-                                          className={`rounded-xl`}
-                                          src={
-                                             getFileAsset(
-                                                attachment.asset._ref,
-                                                {
-                                                   projectId: 'yw16o87b',
-                                                   dataset: 'production',
-                                                }
-                                             ).url ||
-                                             'https://placehold.co/800x462'
-                                          }
-                                       />
-                                    )}
+                                 const isPdf =
+                                    attachment._type === 'file' &&
+                                    attachment.asset._ref.endsWith('-pdf')
+                                 return (
+                                    <div key={index} className="mb-4">
+                                       {isImage && (
+                                          <Image
+                                             width="800"
+                                             height="462"
+                                             alt={`blog_image`}
+                                             className={`rounded-xl`}
+                                             src={
+                                                getFileAsset(
+                                                   attachment.asset._ref,
+                                                   {
+                                                      projectId: 'yw16o87b',
+                                                      dataset: 'production',
+                                                   }
+                                                ).url ||
+                                                'https://placehold.co/800x462'
+                                             }
+                                          />
+                                       )}
 
-                                    {isPdf && (
-                                       <PdfShow
-                                          file={
-                                             getFileAsset(
-                                                attachment.asset._ref,
-                                                {
-                                                   projectId: 'yw16o87b',
-                                                   dataset: 'production',
-                                                }
-                                             ).url
-                                          }
-                                       />
-                                    )}
-                                 </div>
-                              )
-                           })}
+                                       {isPdf && (
+                                          <PdfShow
+                                             file={
+                                                getFileAsset(
+                                                   attachment.asset._ref,
+                                                   {
+                                                      projectId: 'yw16o87b',
+                                                      dataset: 'production',
+                                                   }
+                                                ).url
+                                             }
+                                          />
+                                       )}
+                                    </div>
+                                 )
+                              }
+                           )}
                         </div>
                      )}
                   </div>
@@ -182,7 +185,7 @@ export default async function SinglePost({ params }: { params: any }) {
                   )}
                   {post.otherLinks &&
                      post?.otherLinks?.length > 0 &&
-                     post?.otherLinks.map((link, index) => (
+                     post?.otherLinks.map((link: any, index: number) => (
                         <div
                            key={index}
                            className="my-8 flex  items-center gap-3"

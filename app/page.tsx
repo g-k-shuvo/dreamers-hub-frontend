@@ -18,15 +18,13 @@ const builder = imageUrlBuilder(client)
 function urlFor(source: any) {
    return builder.image(source)
 }
+
 export default async function Home() {
-   const firstTenPosts = await client.fetch<SanityDocument[]>(
-      FIRST_TEN_POSTS_QUERY,
-      {}
-   )
+   const firstTenPosts = await (client.fetch as any)(FIRST_TEN_POSTS_QUERY)
    const featuredOrLatestPost =
-      firstTenPosts?.find((post) => post?.isFeatured) || firstTenPosts[0]
+      firstTenPosts?.find((post: Post) => post?.isFeatured) || firstTenPosts[0]
    const remainingPosts = firstTenPosts?.filter(
-      (post) => post?._id !== featuredOrLatestPost?._id
+      (post: Post) => post?._id !== featuredOrLatestPost?._id
    )
 
    return (
