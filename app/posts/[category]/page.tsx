@@ -2,20 +2,26 @@ import Advertisement from '@/components/organism/advertisement/Advertisement'
 import PageInfo from '@/components/organism/pageInfo/PageInfo'
 
 import PaginatePosts from '@/components/organism/paginatedPosts/PaginatePosts'
+import { toTitleCase } from '@/utils/functions'
 
 export const metadata = {
-   title: 'All Posts | Dreamers Hub',
+   title: 'Dreamers Hub',
 }
 
-const Posts = () => {
+export default async function CategoryPosts({ params }: { params: any }) {
+   const { category } = await params
+
+   const titleCaseCategory =
+      category === 'admit-and-result' ? 'Admit/Result' : toTitleCase(category)
+
    return (
       <main>
          <div className="container mx-auto">
             <section>
-               <PageInfo title="All Posts" />
+               <PageInfo title={titleCaseCategory} />
             </section>
 
-            <PaginatePosts />
+            <PaginatePosts category={category} />
 
             <section className="mb-24">
                <Advertisement />
@@ -24,5 +30,3 @@ const Posts = () => {
       </main>
    )
 }
-
-export default Posts

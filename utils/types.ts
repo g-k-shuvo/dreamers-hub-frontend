@@ -65,3 +65,8 @@ export interface SinglePostPagePropTypes {
 export interface PageInfoPropTypes {
    title: string
 }
+
+export interface PostOverlayPropTypes {
+   post: Post
+   urlFor: (source: any) => string | any
+}

@@ -78,3 +78,24 @@ export const POSTS_BY_PAGE_QUERY = `
   otherLinks
 }
 `
+
+export const POSTS_BY_CATEGORY_QUERY = `
+  *[
+    _type == "post"
+    && defined(slug.current)
+    && category in $categories
+  ]|order(publishedAt desc)[$start...$end]{
+    _id,
+    title,
+    slug,
+    publishedAt,
+    thumbnail,
+    body,
+    category,
+    isFeatured,
+    attachments,
+    totalCount,
+    source,
+    otherLinks
+  }
+`

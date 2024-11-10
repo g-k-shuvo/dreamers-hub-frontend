@@ -5,49 +5,29 @@ export const FooterDataOne = [
    },
    {
       name: 'About',
-      link: '#',
-   },
-   {
-      name: 'Blog',
-      link: '/blog',
-   },
-   {
-      name: 'Archived',
-      link: '#',
-   },
-   {
-      name: 'Author',
       link: '/author',
    },
    {
-      name: 'Contact',
-      link: '#',
+      name: 'All Posts',
+      link: '/all-posts',
    },
 ]
 
 export const FooterDataTwo = [
    {
-      name: 'Life style',
-      link: '#',
+      name: 'Jobs',
+      link: '/posts/jobs',
    },
    {
-      name: 'Technology',
-      link: '#',
+      name: 'Newspaper',
+      link: '/posts/newspaper',
    },
    {
-      name: 'Travel',
-      link: '#',
+      name: 'Result/Admit',
+      link: '/posts/admit-and-result',
    },
    {
-      name: 'Business',
-      link: '#',
-   },
-   {
-      name: 'Economy',
-      link: '#',
-   },
-   {
-      name: 'Sports',
-      link: '#',
+      name: 'Others',
+      link: '/posts/others',
    },
 ]

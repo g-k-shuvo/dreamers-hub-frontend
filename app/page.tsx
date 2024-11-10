@@ -54,7 +54,7 @@ export default async function Home() {
             </div>
             <div className="flex items-center justify-center w-full mt-8">
                <Link
-                  href={`/blog`}
+                  href={`/all-posts`}
                   className="btn btn-outline btn-secondary text-secondary-content/60 font-work font-medium text-base"
                >
                   View All Post

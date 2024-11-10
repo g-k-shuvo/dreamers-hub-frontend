@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
+import avatar from '@/public/avatar.png'
+import Image from 'next/image'
 
 /**
  * Our AuthorInfo is a reusable UI component that can be used to represent user details information.
@@ -15,17 +17,12 @@ const AuthorInfo = () => {
          <div className="flex items-center justify-center gap-4">
             <div className="avatar">
                <div className="w-16 rounded-full">
-                  <img
-                     src="https://placehold.it/100x100"
-                     width={64}
-                     height={64}
-                     alt="avatar_image"
-                  />
+                  <Image src={avatar} width={100} height={100} alt="avatar" />
                </div>
             </div>
             <div>
                <h5 className="text-base-content text-base sm:text-xl font-medium">
-                  Jonathan Doe
+                  Dreamers Hub
                </h5>
                <span className="text-base-content/60 text-xs sm:text-sm">
                   Collaborator & Editor
@@ -33,10 +30,18 @@ const AuthorInfo = () => {
             </div>
          </div>
          <p className="text-sm sm:text-lg text-base-content/70 text-center py-6 max-w-2xl w-full mx-auto">
-            Meet Jonathan Doe, a passionate writer and blogger with a love for
-            technology and travel. Jonathan holds a degree in Computer Science
-            and has spent years working in the tech industry, gaining a deep
-            understanding of the impact technology has on our lives.
+            Welcome to Dreamers Hub, your ultimate destination for insightful
+            articles, the latest news, and valuable resources across various
+            domains. Whether you&apos;re looking for updates on job
+            opportunities, the latest happenings in technology, or entertainment
+            news, Dreamers Hub has got you covered.
+         </p>
+         <p className="text-sm sm:text-lg text-base-content/70 text-center pb-6 max-w-2xl w-full mx-auto">
+            Our portal is designed to cater to a diverse audience with
+            meticulously curated content that empowers our readers with
+            knowledge and information. Join us on this journey of exploration
+            and discovery. Dream big, stay informed, and let Dreamers Hub be
+            your guide.
          </p>
          <div className="flex items-center justify-center gap-2">
             {socialShare?.map((item, index) => (

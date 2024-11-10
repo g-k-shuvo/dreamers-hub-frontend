@@ -25,9 +25,10 @@ const Footer = () => {
                      About
                   </h5>
                   <p className="mt-3 text-base text-base-content/70 mb-6">
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                     sed do eiusmod tempor incididunt ut labore et dolore magna
-                     aliqua. Ut enim ad minim veniam
+                     Dreamers Hub is your go-to portal for insightful articles,
+                     the latest news, and valuable resources across various
+                     domains. Stay informed and connected with our meticulously
+                     curated content and updates.
                   </p>
                   <div>
                      <a

@@ -9,32 +9,20 @@ export const headerData = [
    },
    {
       name: 'Jobs',
-      link: '/jobs',
+      link: '/posts/jobs',
    },
 
    {
       name: 'Newspaper',
-      link: '/newspaper',
+      link: '/posts/newspaper',
    },
    {
       name: 'Result/Admit',
-      link: '/result',
+      link: '/posts/admit-and-result',
    },
 
    {
       name: 'Others',
-      link: '/others',
+      link: '/posts/others',
    },
-   // {
-   //    name: 'Single Post',
-   //    link: '/single-post',
-   // },
-   // {
-   //    name: 'Author',
-   //    link: '/author',
-   // },
-   // {
-   //    name: 'Contact',
-   //    link: '#',
-   // },
 ]
