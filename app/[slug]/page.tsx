@@ -112,39 +112,53 @@ export default async function SinglePost({ params }: { params: any }) {
                                  const isPdf =
                                     attachment._type === 'file' &&
                                     attachment.asset._ref.endsWith('-pdf')
+
+                                 const fileUrl = getFileAsset(
+                                    attachment.asset._ref,
+                                    {
+                                       projectId: 'yw16o87b',
+                                       dataset: 'production',
+                                    }
+                                 ).url
+
                                  return (
                                     <div key={index} className="mb-4">
                                        {isImage && (
-                                          <Image
-                                             width="800"
-                                             height="462"
-                                             alt={`blog_image`}
-                                             className={`rounded-xl`}
-                                             src={
-                                                getFileAsset(
-                                                   attachment.asset._ref,
-                                                   {
-                                                      projectId: 'yw16o87b',
-                                                      dataset: 'production',
-                                                   }
-                                                ).url ||
-                                                'https://placehold.co/800x462'
-                                             }
-                                          />
+                                          <>
+                                             <Image
+                                                width="800"
+                                                height="462"
+                                                alt={`blog_image`}
+                                                className={`rounded-xl`}
+                                                src={
+                                                   fileUrl ||
+                                                   'https://placehold.co/800x462'
+                                                }
+                                             />
+                                             <a
+                                                href={fileUrl}
+                                                download
+                                                target="_blank"
+                                                className="mt-4 inline-block cursor-pointer text-white px-2.5 py-1 bg-blue-500 text-xs md:text-sm  mb-2 md:mb-4 font-medium font-work "
+                                             >
+                                                Download Image
+                                             </a>
+                                          </>
                                        )}
 
                                        {isPdf && (
-                                          <PdfShow
-                                             file={
-                                                getFileAsset(
-                                                   attachment.asset._ref,
-                                                   {
-                                                      projectId: 'yw16o87b',
-                                                      dataset: 'production',
-                                                   }
-                                                ).url
-                                             }
-                                          />
+                                          <>
+                                             <PdfShow file={fileUrl} />
+
+                                             <a
+                                                href={fileUrl}
+                                                target="_blank"
+                                                download
+                                                className="mt-4 inline-block cursor-pointer text-white px-2.5 py-1 bg-blue-500 text-xs md:text-sm  mb-2 md:mb-4 font-medium font-work "
+                                             >
+                                                Download PDF
+                                             </a>
+                                          </>
                                        )}
                                     </div>
                                  )
