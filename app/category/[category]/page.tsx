@@ -4,10 +4,16 @@ import PageInfo from '@/components/organism/pageInfo/PageInfo'
 import PaginatePosts from '@/components/organism/paginatedPosts/PaginatePosts'
 import { toTitleCase } from '@/utils/functions'
 
-export const metadata = {
-   title: 'Dreamers Hub',
-}
+export async function generateMetadata({ params }: { params: any }) {
+   const { category } = await params
 
+   return {
+      title:
+         category === 'admit-and-result'
+            ? 'Admit/Result'
+            : toTitleCase(category),
+   }
+}
 export default async function CategoryPosts({ params }: { params: any }) {
    const { category } = await params
 

@@ -54,7 +54,7 @@ const PostCard: React.FC<PostCardPropTypes> = ({ post, urlFor }) => {
                   </div>
                   <h5>
                      <Link
-                        href="/"
+                        href="/author"
                         className="text-base font-medium hover:text-primary transition hover:duration-300"
                      >
                         Dreamers Hub

@@ -3,7 +3,7 @@ import PostCard from '@/components/molecules/card/PostCard'
 import React from 'react'
 
 export const metadata = {
-   title: 'Dreamers Hub',
+   title: 'About',
 }
 
 const Author = () => {

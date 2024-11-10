@@ -55,7 +55,7 @@ const BannerCard: React.FC<BannerCardPropTypes> = ({
                   </div>
                   <h6>
                      <Link
-                        href="/"
+                        href="/author"
                         className="text-base-content/60 text-xs md:text-base font-medium hover:text-primary transition hover:duration-300"
                      >
                         Dreamers Hub

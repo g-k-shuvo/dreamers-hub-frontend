@@ -55,7 +55,7 @@ const PostOverlayCard: React.FC<PostOverlayPropTypes> = ({ post, urlFor }) => {
                   </div>
                   <h5>
                      <Link
-                        href="/"
+                        href="/author"
                         className="text-xs md:text-base font-medium hover:text-primary transition hover:duration-300"
                      >
                         Dreamers Hub

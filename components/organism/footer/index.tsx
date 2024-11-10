@@ -14,8 +14,6 @@ import { Favicon, Logo } from '@/components/organism/header'
  */
 
 const Footer = () => {
-   const { lightMode } = useMode()
-
    return (
       <footer className="mt-8 bg-base-200 px-5 md:px-0 font-sans">
          <div className="container mx-auto">

@@ -4,7 +4,7 @@ import PageInfo from '@/components/organism/pageInfo/PageInfo'
 import PaginatePosts from '@/components/organism/paginatedPosts/PaginatePosts'
 
 export const metadata = {
-   title: 'All Posts | Dreamers Hub',
+   title: 'All Posts',
 }
 
 const Posts = () => {

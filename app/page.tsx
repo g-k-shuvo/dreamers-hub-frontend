@@ -7,10 +7,12 @@ import { client } from '@/sanity/client'
 import { FIRST_TEN_POSTS_QUERY } from '@/sanity/queries'
 import { Post } from '@/utils/types'
 import imageUrlBuilder from '@sanity/image-url'
+import { Metadata } from 'next'
 
-export const metadata = {
-   title: 'Dreamers Hub | Home',
-   description: 'Dreamers Hub',
+export const metadata: Metadata = {
+   title: 'Home | Dreamers Hub',
+   description:
+      'Dreamers Hub is your ultimate destination for insightful articles, the latest news, and valuable resources across various domains. Stay informed and connected with our meticulously curated content, covering job opportunities, technology updates, entertainment news, and more. Join us on a journey of exploration and discovery, and let Dreamers Hub be your guide to staying informed and inspired.',
 }
 
 const builder = imageUrlBuilder(client)
